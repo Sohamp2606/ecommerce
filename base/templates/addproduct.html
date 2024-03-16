@@ -1,0 +1,80 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+    
+    input{ 
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    
+    .form-container {
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+    
+        <div class="con2">
+            <div class="con3">                         
+                <div class="header">
+                    <h3>Flipkart</h3>
+                    <h3>Unlock Your</h3>
+                    <h3>Performance</h3>
+                </div>
+                                 
+                <div class="image">
+                    <img src="{% static 'images/loginimg2.png' %}" >
+                </div>
+            </div>
+            
+            <div class="form-body">
+                
+                
+             <div>
+                <div class="loginheading">
+                    <h2>Add Product</h2>
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <input type="text" name="name" placeholder="Product Name"><br>
+                    <input type="text" name="brandname" placeholder="Brand Name"><br>
+                    <div class="expand">
+                        <input type="text" name="mainprice" placeholder="Main Price"><br>
+                        <input type="text" name="price" placeholder="Price"><br>
+                    </div>
+                    <div class="expand">
+                        <input type="text" name="category" placeholder="Category"><br>
+                        <input type="text" name="colour" placeholder="Colour"><br>
+                    </div>
+                    <input type="text" class="disc" name="discription" placeholder="Discription"><br>
+                    <input type="file" name="image" placeholder="Choose Image"><br>
+                     
+                       
+                    <button type="submit"  class="button">ADD</button>
+                    <p ><a href="/home/"> HOME </a> </p>
+                </form>
+             </div>
+
+            </div>
+    
+        </div>
+    
+</body>
+</html>

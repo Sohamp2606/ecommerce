@@ -1,0 +1,71 @@
+
+{% extends 'main.html' %}
+{% load static %}
+    
+
+{% block content %}
+<div class="sidebar" >
+    <!-- <h2>Filter</h2> -->
+    <h4><i class="fa-solid fa-arrow-down-wide-short"></i> Sort</h4>
+    <ul>
+        <li><a href="{% url 'products' %}?category={{ category }}&sort=price_asc">Low to High</a></li>
+        <li><a href="{% url 'products' %}?category={{ category }}&sort=price_desc">High to Low</a></li>
+        <li><a href="{% url 'products' %}?{{ category }}&sort=new_arrival">New Arrival</a></li>
+    </ul>
+    <h4> <i class="fa-solid fa-filter"></i> Price </h4>
+    <div class="formcon">
+        <form action="{% url 'products' %}" method="POST">
+            {% csrf_token %}
+                <input type="hidden" name="category" value="{{category}}">
+                <input type="hidden" name="search-area" value="{{search_input}}">
+                <input type="hidden" name="sort" value="{{sort}}">
+                
+                {% for range,label in price_ranges.items %}
+                
+                <input type="checkbox" id="range{{ forloop.counter }}" name="price_range" value="{{range}}">
+                <label for="range{{forloop.counter}}">{{label}}</label><br>
+            {% endfor %}
+                <button type="submit">Apply Filter</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+     
+{% for product in allproducts %}
+  
+    <div class="col-lg-4">
+		<div class="box-element product">
+            <img class="thumbnail" src="{{ product.image.url }}" alt="{{product.name}}">
+            <div class="product">
+                <h6><strong>{{ product.name }}</strong></h6>
+                <!-- <hr> -->
+                
+                <h4><span>&darr;38%</span><span>&#x20b9;3000</span> <strong>&#x20b9;{{ product.price }}</strong></h4>
+                <button  class="btn btn-outline-secondary add-btn" onclick="window.location.href='{% url 'payment' product.price %}'">Buy Now</button>
+                <a class="btn btn-outline-success" href="#">View</a>
+                
+    
+            </div>
+		</div>
+	</div>
+  
+{% endfor %}</div>
+ <!--
+<div class="row">
+    <div class="col-lg-4">
+		<div class="box-element product">
+            <img class="thumbnail" src="{% static 'images/product22.webp' %}" >
+            <div class="box-element product">
+                <h6><strong>product</strong></h6>
+                <hr>
+                <button  class="btn btn-outline-secondary add-btn" >Buy Now</button>
+                <a class="btn btn-outline-success" href="#">View</a>
+                <h4 style="display: inline-block; text-align: right; margin-left: auto; "><strong>3000 RS</strong></h4>
+    
+            </div>
+		</div>
+	</div>
+</div>-->
+{% endblock content %}
+

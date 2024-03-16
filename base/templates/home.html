@@ -1,0 +1,297 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <script src="https://kit.fontawesome.com/40962f4670.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dropdown.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}"><i class="fa-brands fa-shopify"></i> Shopify</a>
+       
+        
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <div class="homelinks">
+                <ul id="dropdownid">
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'products' %}">Products <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="#">Fashion </a>
+                        <ul class="dropdown-content">
+                            <li><a href="{% url 'products' %}?category=mensfashion">Men's</a></li>
+                            <li><a href="{% url 'products' %}?category=womensfashion">Women's</a></li>
+                            <!-- <li><a href="#">Kid's</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="#">Devices </a>
+                        <ul class="dropdown-content">
+                            <li><a href="{% url 'products' %}?category=laptop">Laptop</a></li>
+                            <li><a href="{% url 'products' %}?category=phone">Phone</a></li>
+                            <!-- <li><a href="#">Link 1</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropbtn" href="#">More </a>
+                        <ul class="dropdown-content">
+                            <li><a href="{% url 'products' %}?category=footware">Footware</a></li>
+                            <li><a href="{% url 'products' %}?category=electronic">Electronics</a></li>
+                            <li><a href="{% url 'products' %}?category=beautyandhealth">Beauty & Health</a></li>
+                            <li><a href="{% url 'products' %}?category=book">Books</a></li>
+                        </ul>
+                    </li>
+            
+                </ul>
+            </div>
+            
+
+            
+        </div>
+
+        <div id="search-wrapper">
+               
+            <form method="POST" action="{% url 'products' %} ">
+                {% csrf_token %}
+                <input type="text" name='search-area' value="{{search_input}}">
+                <input class="button" type="submit" value="Search">
+            </form>
+            
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <div class="nav-button form-inline my-2 my-lg-0" >
+                <a href="{% url 'login' %}"class="btn btn-warning">Account</a>
+                <a href="#"class="btn btn-warning">My Orders</a>
+                
+            </div>
+        </div>
+
+        
+        <div class="hamburger">
+            <div class="bar1 "></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+      
+
+        
+    </nav>
+
+
+    <div class="container">
+        <nav class="mobilenav">
+            <a href="#">Fashion</a>
+                <a href="#">Devices</a>
+                <a href="#">Footware</a>
+                <a href="#">Electronics</a>
+                <a href="#">Books</a>
+        </nav>
+
+        <div class="slideshow-container">
+
+            <div class="myslides">
+                <img src="{% static 'images/shop.webp' %} " alt="" style="width:100%">
+            </div>
+
+            <div class="myslides">
+                <img src="{% static 'images/shop2.webp' %} " alt="" style="width:100%">
+            </div>
+
+            <div class="myslides">
+                <img src="{% static 'images/shop3.webp' %} " alt="" style="width:100%">
+            </div>
+
+        </div>
+        <br>
+        <div class="dot-container" style="text-align:center;">
+            <span class="dot" ></span>
+            <span class="dot" ></span>
+            <span class="dot" ></span>
+        </div>
+
+        <div class="banner">
+            <img src="{% static 'images/banner17.webp' %}" alt="">
+        </div>
+        <div class="card-container">
+            <div class="card-containt">
+
+                <div class="card">
+                    <img src="{% static 'images/model4.webp' %}" alt="">
+                    <div class="card-btn">
+                        <h2>Jackets</h2>
+                        <button>SHOP NOW</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/model2.webp' %}" alt="">
+                    <div class="card-btn">
+                        <h2>Knitwear</h2>
+                        <button>SHOP NOW</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/model3.webp' %}" alt="">
+                    <div class="card-btn">
+                        <h2>Dresses</h2>
+                        <button>SHOP NOW</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="banner-con">
+            <div class="banner1">
+                
+                <div class="offer">
+                    <h2>25% off Everything</h2>
+                    <p>Step up your fashion game with our trendsetting shoes!</p>
+                    <a style="margin-top:10px" class="offerbtn" href="#">Explore Now</a>
+                </div>
+                <img src="{% static 'images/banner11.jpg' %}" alt="">
+            </div>
+            <div class="banner2">
+                <div class="offer">
+                    <p>NEW COLLECTION</p>
+                    <h2>Step Up Your Game</h2>
+                    <a class="offerbtn"   href="#">Explore More</a>
+                </div>
+                <img src="{% static 'images/banner2.jpg' %}" alt="">
+            </div>
+        </div>
+
+        <div class="collections">
+            <div class="collection-con" id="coll1">
+                <div class="collection-head">
+                    <h3 class="collection-heading">Summer Collection</h3>
+                    <p class="collection-text">Starting at &#x20b9;499</p>
+                    <a href="#" class="btn-link">Shop Now &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <img src="{% static 'images/collection-1.jpg' %}" alt="">
+            </div>
+            <div class="collection-con" id="coll2">
+                <div class="collection-head">
+                    <h3 class="collection-heading">What's New?</h3>
+                    <p class="collection-text">Get the glow.</p>
+                    <a href="#" class="btn-link">Discover Now &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <!-- <a href="#" class="btn-link">Discover Now &nbsp;<i class="fa-solid fa-arrow-right"></i></a> -->
+                <img src="{% static 'images/collection-2.jpg' %}" alt="">
+            </div>
+            <div class="collection-con" id="coll3">
+                <div class="collection-head">
+                    <h3 class="collection-heading">Buy 1 Get 1</h3>
+                    <p class="collection-text">Starting at &#x20b9;299</p>
+                    <a href="#" class="btn-link">Discover Now &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <img src="{% static 'images/collection-3.jpg' %}" alt="">
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="footer-con">
+
+            <div class="footer-con1">
+                <div class="link-con">
+                    <h2>Company </h2>
+                    <ul class="links" id="link1">
+                        <li>Find a location nearest you. See <a href="#">Our Stores</a></li>
+                        <li style="color:rgb(24, 24, 24)">+391 (0)35 2568 4593</li>
+                        <li style="color:rgb(24, 24, 24)">hello@domain.com</li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="link-con">
+                    <h2>Useful links</h2>
+                    <ul class="links" id="link2">
+                        <li><a href="#">New Products</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Bundle & Save</a></li>
+                        <li><a href="#">Online Gift Card</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-con">
+                    <h2>Infomation</h2>
+                    <ul class="links" id="link3">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping FAQ</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="link-con">
+                    <div id="link4"></div>
+                    <h2>Good emails.</h2>
+                    <p style="color:hsl(0, 0%, 45%);letter-spacing:normal;">Enter your email below to be the first to know 
+                        about new collections and product
+                         launches.</p>
+                    <input class="email-con" type="email" placeholder="Email">
+                    <input type="submit" name="submit" value="Send" id="submit">
+                   
+                </div>
+            </div>
+            <div class="footer-con2">
+                <div class="copyright">
+                    <small>© Copyright 2023 sohampatil2606</small>&nbsp;
+                    <h4 style="display:inline-block"><i class="fa-brands fa-instagram"></i> &nbsp; <i class="fa-brands fa-x-twitter"></i> 
+                    &nbsp; <i class="fa-brands fa-youtube"></i> &nbsp; <i class="fa-brands fa-facebook"></i></h4>
+                </div>
+                
+                <div class="logo">
+                    <h2><i class="fa-brands fa-shopify"></i> Shopify</a></h2>
+                </div>
+                <div class="payment">
+                    <img src="{% static 'images/pay.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+  
+    
+
+    <script src="{% static 'css/mobilenav.js' %}"></script>
+ <!-- slideshow js -->
+ <script>
+    let slideindex = 0;
+    showslides();
+
+    function showslides(){
+        let i;
+        let slides = 
+        document.getElementsByClassName("myslides");
+        let dots = document.getElementsByClassName("dot");
+        for(i=0;i < slides.length;i++){
+            slides[i].style.display="none";
+        }
+        slideindex++;
+        if(slideindex > slides.length){slideindex = 1}
+        
+        slides[slideindex-1].style.display = "block";
+        setTimeout(showslides,3000);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+        <div class="con2">
+            <div class="con3">                         
+                <div class="header">
+                    <h3>Ecom</h3>
+                    <h3>Your Shopping</h3>
+                    <h3>Paradise</h3>
+                </div>
+                                 
+                <div class="image">
+                    <img src="{% static 'images/loginimg2.png' %}" >
+                </div>
+            </div>
+            
+            <div class="form-body">
+                
+                
+             <div>
+                <div class="loginheading">
+                    <h2>Register Here</h2>
+                </div>
+                <form method="POST">
+                {% csrf_token %}
+
+                    {% if messages %}
+            
+                    <div class="alert alert-info" role="alert">
+                        {% for message in messages %}
+                        <p class="info-message">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                
+                    {% endif %}
+
+                       
+                        <input type="text" class="form-control" name="first_name" placeholder="First Name" ></br>
+
+                        <input type="text" class="form-control" name="last_name" placeholder="Last Name" ></br>
+
+                        <input type="text" class="form-control" name="username" placeholder="Username" ></br>
+
+                        <input type="password" name="password" class="form-control" placeholder="Password" >
+
+                    <button type="submit"  class="button">REGISTER</button>
+                    <p ><a href="/login/"> LOGIN </a> </p>
+                </form>
+             </div>
+
+            </div>
+    
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        /* Add your CSS styles here */
+        .payment-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .qr-code-image {
+            width: 200px; /* Adjust the size as needed */
+            height: auto;
+            border: 2px solid #cf1111;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Payment Page</h1>
+        <p>Scan the QR code to complete your payment:</p>
+        <img class="qr-code-image" src="{% url 'payment5' %}" alt="QR Code">
+    </div>
+</body>
+</html>
+
+<!-- <img class="qr-code-image" src="{% url 'payment5' %}" alt="QR Code"> -->
